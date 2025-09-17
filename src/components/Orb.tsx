@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -24,18 +23,19 @@ const Button = styled.button`
   }
 `
 
-const Orb = () => {
-  const [count, setCount] = useState(0);
+type OrbProps = {
+  count: number;
+  setCount: (value: number) => void;
+}
+
+const Orb = ({ count, setCount }: OrbProps) => {
   
   const handleCount = () => {
-    setCount((prev) => prev + 1);
+    setCount(count + 1);
   }
 
-  return (
-    <div>
-      <Button onClick={handleCount}>{count}</Button>
-    </div>
-  );
+  return <Button onClick={handleCount}>{count}</Button>;
+  
 };
 
 export default Orb;
