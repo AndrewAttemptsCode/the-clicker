@@ -30,12 +30,12 @@ type OrbProps = {
 
 const Orb = ({ count, setCount }: OrbProps) => {
   
-  const handleCount = () => {
+  const handleIncrement = () => {
     setCount(count + 1);
   }
 
-  return <Button onClick={handleCount}>{count}</Button>;
-  
+  return <Button onClick={handleIncrement}>{count}</Button>;
+
 };
 
 export default Orb;
