@@ -2,7 +2,26 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
+  aspect-ratio: 1 / 1;
+  border-radius: 50rem;
   cursor: pointer;
+  height: 4rem;
+  width: auto;
+  background: inherit;
+  border: 4px solid gray;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: none;
+    background: inherit;
+  }
 `
 
 type PowerOrbProps = {
@@ -25,7 +44,7 @@ const PowerOrb = ({count, setCount, increment }: PowerOrbProps) => {
     }, POWER_ORB_TIMEOUT);
   }
 
-  return <Button disabled={disableOrb} onClick={handleClick}>+{increment}</Button>;
+  return <Button disabled={disableOrb} onClick={handleClick}>+ {increment}</Button>;
 };
 
 export default PowerOrb;
