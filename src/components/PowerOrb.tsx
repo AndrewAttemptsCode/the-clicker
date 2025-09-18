@@ -24,7 +24,10 @@ const Button = styled.button`
   height: 4rem;
   width: 4rem;
   background: inherit;
-  border: 2px solid gray;
+  border: 2px solid rgb(0, 190, 190);
+  color: rgb(220, 253, 253);
+  font-weight: bold;
+  font-size: 1.1rem;
   overflow: hidden;
 
   display: flex;
@@ -48,7 +51,7 @@ const OrbBackground = styled.div<OrbBackgroundProps>`
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-color: aqua;
+  background: linear-gradient(to bottom, rgb(92, 238, 238) , rgb(26, 66, 66));
   ${({ $orbClicked, $duration }) =>
     $orbClicked &&
     css`
