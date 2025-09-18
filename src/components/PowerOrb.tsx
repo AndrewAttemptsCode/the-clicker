@@ -42,7 +42,7 @@ const Button = styled.button`
   }
 
   &:active {
-    box-shadow: none;
+    box-shadow: 0 0 8px 3px rgb(0, 190, 190);
     background: inherit;
   }
 `;
