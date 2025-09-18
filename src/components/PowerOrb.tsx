@@ -24,7 +24,8 @@ const Button = styled.button`
   height: 4rem;
   width: 4rem;
   background: inherit;
-  border: 2px solid rgb(0, 190, 190);
+  border: none;
+  box-shadow: 0 0 8px 3px rgb(0, 190, 190);
   color: rgb(220, 253, 253);
   font-weight: bold;
   font-size: 1.1rem;
