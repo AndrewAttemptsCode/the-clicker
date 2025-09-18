@@ -10,13 +10,19 @@ const slideUp = keyframes`
   }
 `;
 
+const orbAnimate = keyframes`
+  50% {
+    transform: translateY(-10%);
+  }
+`
+
 const Button = styled.button`
   position: relative;
   aspect-ratio: 1 / 1;
   border-radius: 50rem;
   cursor: pointer;
   height: 4rem;
-  width: auto;
+  width: 4rem;
   background: inherit;
   border: 2px solid gray;
   overflow: hidden;
@@ -24,6 +30,8 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  animation: ${orbAnimate} 5000ms ease-in-out infinite;
 
   &:focus {
     outline: none;
