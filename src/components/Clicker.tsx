@@ -1,6 +1,20 @@
 import { useState } from "react";
 import Orb from "./Orb";
 import PowerOrb from "./PowerOrb";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+`
+
+const PowerOrbsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+`
 
 const Clicker = () => {
   const [count, setCount] = useState(0);
@@ -13,12 +27,14 @@ const Clicker = () => {
   const orbs = [...Array(result)];
 
   return (
-    <div>
+    <Container>
       <Orb count={count} setCount={setCount} />
-      {orbs.map((_, index) => (
-        <PowerOrb key={index} count={count} setCount={setCount} increment={(index + 1) * 5 } />
-      ))}
-    </div>
+      <PowerOrbsContainer>
+        {orbs.map((_, index) => (
+          <PowerOrb key={index} count={count} setCount={setCount} increment={(index + 1) * 5 } />
+        ))}
+      </PowerOrbsContainer>
+    </Container>
   );
 };
 
