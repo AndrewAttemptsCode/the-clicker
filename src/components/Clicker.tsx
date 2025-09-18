@@ -13,7 +13,10 @@ const Container = styled.div`
 
 const PowerOrbsContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 `
 
 const Clicker = () => {
