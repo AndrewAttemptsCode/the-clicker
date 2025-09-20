@@ -10,12 +10,18 @@ const Button = styled.button`
   border: none;
   overflow: hidden;
   box-shadow: 0 0 8px 3px rgb(0, 190, 190);
-  color: rgb(220, 253, 253);
-
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+
+  & span {
+    z-index: 10;
+    color: rgb(220, 253, 253);
+    font-weight: bold;
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  }
 
   &:focus {
     outline: none;
@@ -31,7 +37,7 @@ const OrbBackground = styled.div<OrbBackgroundProps>`
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 5;
   background: linear-gradient(to bottom, rgb(92, 238, 238) , rgb(26, 66, 66));
   transform-origin: bottom;
   transform: ${({$scaleTracker}) => $scaleTracker ? `scaleY(${$scaleTracker})` : "none"}; 
@@ -56,7 +62,7 @@ const Orb = ({ count, setCount }: OrbProps) => {
 
   return (
     <Button onClick={handleIncrement}>
-      {count}
+      <span>{count}</span>
       <OrbBackground $scaleTracker={SCALE} />
     </Button>
   );
