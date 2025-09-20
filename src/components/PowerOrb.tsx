@@ -16,7 +16,13 @@ const orbAnimate = keyframes`
   }
 `
 
-const Button = styled.button`
+const orbClicked = keyframes`
+  50% {
+    transform: scale(0.9);
+  }
+`
+
+const Button = styled.button<ButtonProps>`
   position: relative;
   aspect-ratio: 1 / 1;
   border-radius: 50rem;
@@ -37,6 +43,8 @@ const Button = styled.button`
   justify-content: center;
 
   animation: ${orbAnimate} 5000ms ease-in-out infinite;
+
+  ${({ $orbClicked }) => $orbClicked && css`animation: ${orbClicked} 200ms ease-in-out forwards`};
 
   &:focus {
     outline: none;
@@ -73,8 +81,13 @@ type PowerOrbProps = {
   setCountUpdated: (value: boolean) => void;
 };
 
+type ButtonProps = {
+  $orbClicked: boolean;
+}
+
 const PowerOrb = ({ count, setCount, increment, setCountUpdated }: PowerOrbProps) => {
   const [disableOrb, setDisableOrb] = useState(false);
+  const [orbClicked, setOrbClicked] = useState(false);
 
   const POWER_ORB_TIMEOUT = increment * 2000;
 
@@ -82,9 +95,11 @@ const PowerOrb = ({ count, setCount, increment, setCountUpdated }: PowerOrbProps
     setCount(count + increment);
     setDisableOrb(true);
     setCountUpdated(true);
+    setOrbClicked(true);
 
     setTimeout(() => {
       setCountUpdated(false);
+      setOrbClicked(false);
     }, 200);
 
     setTimeout(() => {
@@ -93,7 +108,7 @@ const PowerOrb = ({ count, setCount, increment, setCountUpdated }: PowerOrbProps
   };
 
   return (
-    <Button disabled={disableOrb} onClick={handleClick}>
+    <Button disabled={disableOrb} onClick={handleClick} $orbClicked={orbClicked}>
       + {increment}
       <OrbBackground $orbClicked={disableOrb} $duration={POWER_ORB_TIMEOUT} />
     </Button>
