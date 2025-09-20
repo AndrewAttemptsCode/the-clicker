@@ -70,9 +70,10 @@ type PowerOrbProps = {
   count: number;
   setCount: (value: number) => void;
   increment: number;
+  setCountUpdated: (value: boolean) => void;
 };
 
-const PowerOrb = ({ count, setCount, increment }: PowerOrbProps) => {
+const PowerOrb = ({ count, setCount, increment, setCountUpdated }: PowerOrbProps) => {
   const [disableOrb, setDisableOrb] = useState(false);
 
   const POWER_ORB_TIMEOUT = increment * 2000;
@@ -80,6 +81,11 @@ const PowerOrb = ({ count, setCount, increment }: PowerOrbProps) => {
   const handleClick = () => {
     setCount(count + increment);
     setDisableOrb(true);
+    setCountUpdated(true);
+
+    setTimeout(() => {
+      setCountUpdated(false);
+    }, 200);
 
     setTimeout(() => {
       setDisableOrb(false);
