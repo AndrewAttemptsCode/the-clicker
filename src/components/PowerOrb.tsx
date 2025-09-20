@@ -26,6 +26,7 @@ const Button = styled.button`
   background: inherit;
   border: none;
   box-shadow: 0 0 8px 3px rgb(0, 190, 190);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
   color: rgb(220, 253, 253);
   font-weight: bold;
   font-size: 1.1rem;
