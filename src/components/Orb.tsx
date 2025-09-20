@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const textPop = keyframes`
+  50% {
+    font-size: 2.5rem;
+  }
+`
 
 const Button = styled.button`
   aspect-ratio: 1 / 1;
@@ -14,14 +20,6 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  & span {
-    z-index: 10;
-    color: rgb(220, 253, 253);
-    font-weight: bold;
-    font-size: 2rem;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  }
 
   &:focus {
     outline: none;
@@ -43,26 +41,46 @@ const OrbBackground = styled.div<OrbBackgroundProps>`
   transform: ${({$scaleTracker}) => $scaleTracker ? `scaleY(${$scaleTracker})` : "none"}; 
 `
 
+const ClickCounter = styled.span<countUpdatedProps>`
+  z-index: 10;
+  color: rgb(220, 253, 253);
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  ${({$countUpdated}) => $countUpdated && css`animation: ${textPop} 200ms ease-in-out forwards`}
+`
+
 type OrbProps = {
   count: number;
   setCount: (value: number) => void;
+  countUpdated: boolean;
+  setCountUpdated: (value: boolean) => void;
 }
 
 type OrbBackgroundProps = {
   $scaleTracker: number;
 }
 
-const Orb = ({ count, setCount }: OrbProps) => {
+type countUpdatedProps = {
+  $countUpdated: boolean;
+}
+
+const Orb = ({ count, setCount, countUpdated, setCountUpdated }: OrbProps) => {
 
   const SCALE = (count % 100) / 100;
   
   const handleIncrement = () => {
     setCount(count + 1);
+    setCountUpdated(true);
+
+    setTimeout(() => {
+      setCountUpdated(false);
+    }, 200);
   }
 
   return (
     <Button onClick={handleIncrement}>
-      <span>{count}</span>
+      <ClickCounter $countUpdated={countUpdated}>{count}</ClickCounter>
       <OrbBackground $scaleTracker={SCALE} />
     </Button>
   );
