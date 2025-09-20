@@ -21,6 +21,7 @@ const PowerOrbsContainer = styled.div`
 
 const Clicker = () => {
   const [count, setCount] = useState(0);
+  const [countUpdated, setCountUpdated] = useState(false);
 
   const POWER_ORB_THRESHOLD = 100;
   const POWER_ORB_MAX_COUNT = 4;
@@ -31,10 +32,10 @@ const Clicker = () => {
 
   return (
     <Container>
-      <Orb count={count} setCount={setCount} />
+      <Orb count={count} setCount={setCount} countUpdated={countUpdated} setCountUpdated={setCountUpdated} />
       <PowerOrbsContainer>
         {orbs.map((_, index) => (
-          <PowerOrb key={index} count={count} setCount={setCount} increment={(index + 1) * 5 } />
+          <PowerOrb key={index} count={count} setCount={setCount} increment={(index + 1) * 5 } setCountUpdated={setCountUpdated} />
         ))}
       </PowerOrbsContainer>
     </Container>
