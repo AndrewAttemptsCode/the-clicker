@@ -10,8 +10,8 @@ const Button = styled.button`
   aspect-ratio: 1 / 1;
   border-radius: 50rem;
   cursor: pointer;
-  height: 30dvh;
-  width: 30dvh;
+  height: 16rem;
+  width: 16rem;
   background: inherit;
   border: none;
   overflow: hidden;
