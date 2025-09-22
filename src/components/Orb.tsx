@@ -15,18 +15,18 @@ const Button = styled.button`
   background: inherit;
   border: none;
   overflow: hidden;
-  box-shadow: 0 0 8px 3px rgb(0, 190, 190);
+  box-shadow: 0 0 16px 6px rgb(0, 190, 190);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &:focus {
+  &:focus-visible {
     outline: none;
+    box-shadow: 0 0 16px 6px rgb(0, 161, 190);
   }
 
   &:active {
-    box-shadow: 0 0 8px 3px rgb(0, 190, 190);
     background: inherit;
   }
 `
@@ -79,7 +79,7 @@ const Orb = ({ count, setCount, countUpdated, setCountUpdated }: OrbProps) => {
   }
 
   return (
-    <Button onClick={handleIncrement}>
+    <Button onClick={handleIncrement} aria-label={`Add one to count, currently ${count}`}>
       <ClickCounter $countUpdated={countUpdated}>{count}</ClickCounter>
       <OrbBackground $scaleTracker={SCALE} />
     </Button>
