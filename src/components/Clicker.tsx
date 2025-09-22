@@ -19,8 +19,8 @@ const PowerOrbsContainer = styled.div`
   gap: 1.5rem;
 `
 
-const Clicker = () => {
-  const [count, setCount] = useState(0);
+const Clicker = ({ initialCount = 0 }) => {
+  const [count, setCount] = useState(initialCount);
   const [countUpdated, setCountUpdated] = useState(false);
 
   const POWER_ORB_THRESHOLD = 100;
