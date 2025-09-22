@@ -14,13 +14,13 @@ const orbAnimate = keyframes`
   50% {
     transform: translateY(-10%);
   }
-`
+`;
 
 const orbClicked = keyframes`
   50% {
     transform: scale(0.9);
   }
-`
+`;
 
 const Button = styled.button<ButtonProps>`
   position: relative;
@@ -32,7 +32,7 @@ const Button = styled.button<ButtonProps>`
   background: inherit;
   border: none;
   box-shadow: 0 0 8px 3px rgb(0, 190, 190);
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   color: rgb(220, 253, 253);
   font-weight: bold;
   font-size: 1.1rem;
@@ -44,7 +44,11 @@ const Button = styled.button<ButtonProps>`
 
   animation: ${orbAnimate} 5000ms ease-in-out infinite;
 
-  ${({ $orbClicked }) => $orbClicked && css`animation: ${orbClicked} 200ms ease-in-out forwards`};
+  ${({ $orbClicked }) =>
+    $orbClicked &&
+    css`
+      animation: ${orbClicked} 200ms ease-in-out forwards;
+    `};
 
   &:focus-visible {
     outline: none;
@@ -61,7 +65,7 @@ const OrbBackground = styled.div<OrbBackgroundProps>`
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(to bottom, rgb(92, 238, 238) , rgb(26, 66, 66));
+  background: linear-gradient(to bottom, rgb(92, 238, 238), rgb(26, 66, 66));
   ${({ $orbClicked, $duration }) =>
     $orbClicked &&
     css`
@@ -83,7 +87,7 @@ type PowerOrbProps = {
 
 type ButtonProps = {
   $orbClicked: boolean;
-}
+};
 
 const PowerOrb = ({ count, setCount, increment, setCountUpdated }: PowerOrbProps) => {
   const [disableOrb, setDisableOrb] = useState(false);
@@ -108,7 +112,12 @@ const PowerOrb = ({ count, setCount, increment, setCountUpdated }: PowerOrbProps
   };
 
   return (
-    <Button disabled={disableOrb} onClick={handleClick} $orbClicked={orbClicked} aria-label={`Add ${increment} to count, currently ${count}`}>
+    <Button
+      disabled={disableOrb}
+      onClick={handleClick}
+      $orbClicked={orbClicked}
+      aria-label={`Add ${increment} to count, currently ${count}`}
+    >
       + {increment}
       <OrbBackground $orbClicked={disableOrb} $duration={POWER_ORB_TIMEOUT} />
     </Button>

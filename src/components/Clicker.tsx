@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
-`
+`;
 
 const PowerOrbsContainer = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const PowerOrbsContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-`
+`;
 
 const Clicker = ({ initialCount = 0 }) => {
   const [count, setCount] = useState(initialCount);
@@ -32,10 +32,21 @@ const Clicker = ({ initialCount = 0 }) => {
 
   return (
     <Container>
-      <Orb count={count} setCount={setCount} countUpdated={countUpdated} setCountUpdated={setCountUpdated} />
+      <Orb
+        count={count}
+        setCount={setCount}
+        countUpdated={countUpdated}
+        setCountUpdated={setCountUpdated}
+      />
       <PowerOrbsContainer>
         {orbs.map((_, index) => (
-          <PowerOrb key={index} count={count} setCount={setCount} increment={(index + 1) * 5 } setCountUpdated={setCountUpdated} />
+          <PowerOrb
+            key={index}
+            count={count}
+            setCount={setCount}
+            increment={(index + 1) * 5}
+            setCountUpdated={setCountUpdated}
+          />
         ))}
       </PowerOrbsContainer>
     </Container>
