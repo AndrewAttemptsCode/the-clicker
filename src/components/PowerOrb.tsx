@@ -46,12 +46,12 @@ const Button = styled.button<ButtonProps>`
 
   ${({ $orbClicked }) => $orbClicked && css`animation: ${orbClicked} 200ms ease-in-out forwards`};
 
-  &:focus {
+  &:focus-visible {
     outline: none;
+    box-shadow: 0 0 16px 6px rgb(0, 161, 190);
   }
 
   &:active {
-    box-shadow: 0 0 8px 3px rgb(0, 190, 190);
     background: inherit;
   }
 `;
@@ -108,7 +108,7 @@ const PowerOrb = ({ count, setCount, increment, setCountUpdated }: PowerOrbProps
   };
 
   return (
-    <Button disabled={disableOrb} onClick={handleClick} $orbClicked={orbClicked}>
+    <Button disabled={disableOrb} onClick={handleClick} $orbClicked={orbClicked} aria-label={`Add ${increment} to count, currently ${count}`}>
       + {increment}
       <OrbBackground $orbClicked={disableOrb} $duration={POWER_ORB_TIMEOUT} />
     </Button>
