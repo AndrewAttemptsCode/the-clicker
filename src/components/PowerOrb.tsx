@@ -37,6 +37,7 @@ const Button = styled.button<ButtonProps>`
   font-weight: bold;
   font-size: 1.1rem;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 
   display: flex;
   align-items: center;

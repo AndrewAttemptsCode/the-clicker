@@ -20,6 +20,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 
   &:focus-visible {
     outline: none;
