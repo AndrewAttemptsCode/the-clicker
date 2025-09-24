@@ -8,7 +8,7 @@
 ## Features
 * Responsive UI built with React and Styled Components.
 * Clicking the main button increments the count.
-* Extra buttons unlock every 100 clicks (up to 400).
+* Extra buttons unlock every 100 clicks (up to 600).
 
 ## Tech Stack
 * **Front End:** React, TypeScript, Styled-Components, HTML, CSS.
