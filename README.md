@@ -2,8 +2,11 @@
 
 ## About
 
-* A small project I built to practice the use of TypeScript in React.
-* The majority of the app relies on type inference, but I also explored situations where explicit typing is needed — such as typing functional component props and working with styled-components prop interpolations.
+A small project I built to practice the use of TypeScript in React.
+
+The majority of the app relies on type inference, but I also explored situations where explicit typing is needed — such as typing functional component props and working with styled-components prop interpolations.
+
+Live demo available at: https://the-clicker.pages.dev/
 
 ## Features
 * Responsive UI built with React and Styled Components.
