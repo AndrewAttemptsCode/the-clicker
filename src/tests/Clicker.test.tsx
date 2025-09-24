@@ -29,33 +29,43 @@ describe("Clicker Component", () => {
     expect(screen.queryByText("+ 10")).not.toBeInTheDocument();
   });
 
-  it("renders no more than four power orbs", () => {
-    render(<Clicker initialCount={500}/>);
+  it("renders no more than six power orbs", () => {
+    render(<Clicker initialCount={700}/>);
 
     expect(screen.getByText("+ 5")).toBeInTheDocument();
     expect(screen.getByText("+ 10")).toBeInTheDocument();
     expect(screen.getByText("+ 15")).toBeInTheDocument();
     expect(screen.getByText("+ 20")).toBeInTheDocument();
-    expect(screen.queryByText("+ 25")).not.toBeInTheDocument();
+    expect(screen.getByText("+ 25")).toBeInTheDocument();
+    expect(screen.getByText("+ 30")).toBeInTheDocument();
+    expect(screen.queryByText("+ 35")).not.toBeInTheDocument();
   });
 
   it("power orbs increment count by correct amount when clicked", async () => {
-    render(<Clicker initialCount={400} />);
+    render(<Clicker initialCount={600} />);
 
     const powerOrb1 = screen.getByText("+ 5");
     await userEvent.click(powerOrb1);
-    expect(screen.getByText("405")).toBeInTheDocument();
+    expect(screen.getByText("605")).toBeInTheDocument();
 
     const powerOrb2 = screen.getByText("+ 10");
     await userEvent.click(powerOrb2);
-    expect(screen.getByText("415")).toBeInTheDocument();
+    expect(screen.getByText("615")).toBeInTheDocument();
 
     const powerOrb3 = screen.getByText("+ 15");
     await userEvent.click(powerOrb3);
-    expect(screen.getByText("430")).toBeInTheDocument();
+    expect(screen.getByText("630")).toBeInTheDocument();
 
     const powerOrb4 = screen.getByText("+ 20");
     await userEvent.click(powerOrb4);
-    expect(screen.getByText("450")).toBeInTheDocument();
+    expect(screen.getByText("650")).toBeInTheDocument();
+
+    const powerOrb5 = screen.getByText("+ 25");
+    await userEvent.click(powerOrb5);
+    expect(screen.getByText("675")).toBeInTheDocument();
+
+    const powerOrb6 = screen.getByText("+ 30");
+    await userEvent.click(powerOrb6);
+    expect(screen.getByText("705")).toBeInTheDocument();
   });
 });
