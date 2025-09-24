@@ -24,7 +24,7 @@ const Clicker = ({ initialCount = 0 }) => {
   const [countUpdated, setCountUpdated] = useState(false);
 
   const POWER_ORB_THRESHOLD = 100;
-  const POWER_ORB_MAX_COUNT = 4;
+  const POWER_ORB_MAX_COUNT = 6;
 
   const powerOrbs = Math.floor(count / POWER_ORB_THRESHOLD);
   const result = Math.min(powerOrbs, POWER_ORB_MAX_COUNT);
